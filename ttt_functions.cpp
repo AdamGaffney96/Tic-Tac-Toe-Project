@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -35,4 +36,33 @@ void display_board(vector<string> board, string player_one, string player_two, i
     cout << player_one << ": " << player_one_score << "    vs    " << player_two_score << " :" << player_two << "\n";
 }
 
-string make_move(string player)
+string choose_first_mover(string player_one, string player_two) {
+    int choice;
+    string player_choice;
+    cout << "Please pick a player to go first.\n";
+    cout << "1. " << player_one << "\n";
+    cout << "2. " << player_two << "\n";
+    cout << "3. Random\n";
+    cin >> choice;
+
+    if (choice == 3) {
+        srand(time(NULL));
+        choice = rand() % 2 + 1;
+    }
+
+    if (choice == 1) {
+        player_choice = player_one;
+    } else if (choice == 2) {
+        player_choice = player_two;
+    } else {
+        cout << "Error: Invalid choice entry. Terminating program.\n";
+        return "Error";
+    }
+
+    return player_choice;
+}
+
+string make_move(string player) {
+    cout << "";
+    return "test";
+}

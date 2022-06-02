@@ -8,8 +8,19 @@ int main() {
     int player_two_score = 0;
     string temp;
     vector<string> board = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
+    string first_player = choose_first_mover(player_names[0], player_names[1]);
+    if (first_player == "Error") {
+        return 0;
+    }
+    string second_player;
 
-    display_board(board, player_names[0], player_names[1], player_one_score, player_two_score);
+    if (first_player == player_names[0]) {
+        second_player = player_names[1];
+    } else {
+        second_player = player_names[0];
+    }
+
+    display_board(board, first_player, second_player, player_one_score, player_two_score);
 
     cin >> temp;
 
